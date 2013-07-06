@@ -12,6 +12,7 @@ cp -a ./cloud.profiles /etc/salt/cloud.profiles
 iptables -I INPUT -p tcp --dport 4505 -j ACCEPT
 iptables -I INPUT -p tcp --dport 4506 -j ACCEPT
 service iptables save
+service salt-master start
 echo "You will now need to edit the /etc/csalt/cloud and the etc/salt/cloud.providers to set the correct settings. "
 echo "You can then run a command like this to build a new server:"
 echo " salt-cloud -p cent_512 web-servername"
