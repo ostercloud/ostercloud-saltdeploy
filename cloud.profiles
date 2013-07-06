@@ -1,0 +1,7 @@
+cent_512:
+    provider: rackspace
+    size: 512MB Standard Instance
+    image: CentOS 6.3 
+    script: RHEL6
+    deploy: True
+    sudo: False
