@@ -1,4 +1,4 @@
 # Retrieve and execute state data from the master upon booting an instance
 minion:
     master: 166.78.181.74
-    start_action: state.highstate
+start_action: state.highstate
