@@ -9,8 +9,14 @@ mypackages:
             - python
             - python-pip
 
+python-hgtools:
+    pip.installed:
+        - name: hgtools
+        - prereq:
+            - pkg: python-pip
+
 python-pyrax:
     pip.installed:
         - name: pyrax
         - prereq:
-            - pkg: python-pip
+            - state: python-hgtools
