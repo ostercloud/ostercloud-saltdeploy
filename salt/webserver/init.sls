@@ -1,6 +1,13 @@
 httpd:
   pkg:
     - installed
+  file.managed:
+    - name: {{ pillar['vhostfile'] }}
+    - source: salt://webserver/vhost.jinja
+    - template: jinja
+    - require:
+      - pkg: httpd
+        
   service:
     - running
     - require:
