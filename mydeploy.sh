@@ -5,15 +5,17 @@ yum install salt-master salt-cloud python-pip sshpass
 python-pip install apache-libcloud
 salt-cloud --update-bootstrap
 echo "Moving the required files into place"
-cp -a ./salt /srv/salt
-cp -a ./pillar /srv/pillar
-cp -a ./cloud /etc/salt/cloud
-cp -a ./cloud.profiles /etc/salt/cloud.profiles
+cp -a ./salt /srv/
+cp -a ./pillar /srv/
+cp -a ./cloud /etc/salt/
+cp -a ./cloud.profiles /etc/salt/
 iptables -I INPUT -p tcp --dport 4505 -j ACCEPT
 iptables -I INPUT -p tcp --dport 4506 -j ACCEPT
 service iptables save
 service salt-master start
-echo "You will now need to edit the /etc/csalt/cloud and the etc/salt/cloud.providers to set the correct settings. "
+echo "################################ IMPORTANT #################################"
+echo "########### You will now need to edit the /etc/csalt/cloud and the etc/salt/cloud.providers to set the correct settings. ############"
+echo "############################################################################"
 echo "You can then run a command like this to build a new server:"
 echo " salt-cloud -p cent_512 web-servername"
 
