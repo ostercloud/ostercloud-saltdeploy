@@ -7,16 +7,19 @@ mypackages:
             - curl
             - git
             - python
-            - python-pip
+
+python-pip:
+    pkg.installed:
+        - pkg: python-pip
 
 python-hgtools:
     pip.installed:
         - name: hgtools
-        - prereq:
+        - require:
             - pkg: python-pip
 
 python-pyrax:
     pip.installed:
         - name: pyrax
-        - prereq:
-            - state: python-hgtools
+        - require:
+            - pip: hgtools
